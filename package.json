@@ -1,0 +1,28 @@
+{
+  "name": "sport-protect",
+  "version": "1.0.0",
+  "description": "An api to check via a QrCode if the a product is drug-taking",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karim1412/sport-protect.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karim1412/sport-protect/issues"
+  },
+  "homepage": "https://github.com/karim1412/sport-protect#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-rate-limit": "^2.11.0",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.1.1",
+    "mysql": "^2.15.0"
+  }
+}
