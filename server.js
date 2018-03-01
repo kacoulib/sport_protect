@@ -56,8 +56,9 @@ var limiterRequest = new RateLimit(
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "test",
-  database: "sport_project"
+  password: "password",
+  database: "sport_project",
+	insecureAuth : true
   // password: "2,Ksfwpwd_OC"
 });
 
@@ -75,7 +76,7 @@ con.on('error', function(err) {
 app.get('/', limiterRequest, (req, res, next) =>
 {
 	return (res.status(400).json({message: 'Bad request, the request should contain the product barcode id'}))
-	
+
 })
 app.get('/:id', limiterRequest, (req, res, next) =>
 {
@@ -84,6 +85,8 @@ app.get('/:id', limiterRequest, (req, res, next) =>
 	if (!id)
 		return (res.status(400).json({message: 'No product id sended'}));
 
+	// id = '37504100337979';
+	// id = '37504101522058';
 	con.query("SELECT * FROM product_table WHERE barcode_id = ?", id ,function (err, result, fields)
 	{
 		if (err)
@@ -101,7 +104,7 @@ app.get('/:id', limiterRequest, (req, res, next) =>
 			message = `This product <stong>${result.name}</stong> is not doping.`;
 		else
 			return (res.status(400).json({message: 'Bad request'}))
-			
+
 	 	res.json({message, is_doping: result.is_doping})
 	});
 
@@ -127,7 +130,7 @@ app.get('/:id', limiterRequest, (req, res, next) =>
 // 			res.status(400).json({message: 'Bad request'})
 // 			throw err;
 // 		}
-		
+
 // 		res.json({message: 'posted'})
 // 		console.log("1 record inserted");
 // 	});

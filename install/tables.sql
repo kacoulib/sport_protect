@@ -9,10 +9,6 @@ CREATE TABLE IF NOT EXISTS `product_table` (
   `is_doping` ENUM('false', 'true') NOT NULL DEFAULT 'false'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- CREATE TABLE IF NOT EXISTS `barcode_info` (
---   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
---   `product_barcode_id` int(11) NOT NULL UNIQUE,
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 INSERT INTO product_table (id, name, barcode_id, is_doping)
